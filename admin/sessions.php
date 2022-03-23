@@ -10,19 +10,6 @@ if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
     exit;
 }
 
-//check if user is logged in
-if (!isset($_SESSION['userLoggedIn'])) {
-    unset($_SESSION['userUuid']);
-    unset($_SESSION['userIpAddress']);
-    unset($_SESSION['userLoginTime']);
-    unset($_SESSION['userLoggedIn']);
-    unset($_SESSION['userRole']);
-
-    setcookie("autologin", "", time() - (84600 * 366), "/", "", true, true);
-
-    header("location: ../inloggen");
-}
-
 //check if the session time is valid
 if (isset($_SESSION['userLoginTime'])) {
     if ((time() - 3600) > $_SESSION['userLoginTime']) {
