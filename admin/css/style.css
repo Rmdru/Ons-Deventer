@@ -1,0 +1,16 @@
+.adminDashboard body > .wrapper {
+    margin-top: 75px;
+    padding-top: 20px;
+}
+
+.adminDashboard .content .blog .table {
+    margin-top: 20px;
+}
+
+.adminDashboard .form input, .adminDashboard .form textarea {
+    width: 100%;
+}
+
+.adminDashboard .content {
+    margin-bottom: 20px;
+}
