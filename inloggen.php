@@ -60,17 +60,7 @@ if (isset($_SESSION['userLoggedIn'])) {
                     <input type="hidden" class="hiddenField" />
                     <input type="text" class="inputField email" placeholder="E-mailadres" />
                     <button class="primaryBtn pswResetBtn">Herstel link aanvragen</button>
-                    <div class="status">
-                        <?php
-                        if (isset($_GET['loggedOut'])) {
-                            if ($_GET['loggedOut'] == 1) {
-                                echo "<p class='primaryTxt error'><i class='material-icons'>close</i> Je bent automatisch uitgelogd, omdat je IP-adres gewijzigd is en daarom word u verdacht van session hijacking.</p>";
-                            } else if ($_GET['loggedOut'] == 2) {
-                                echo "<p class='primaryTxt error'><i class='material-icons'>close</i> Je bent automatisch uitgelogd, omdat je een uur lang geen interactie hebt gemaakt met je account. Je kan hieronder gewoon weer inloggen.</p>";
-                            }
-                        }                        
-                        ?>
-                    </div>
+                    <div class="status"></div>
                 </div>
             </div>
         </div>
