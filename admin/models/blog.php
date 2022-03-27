@@ -242,7 +242,7 @@ if ($action == "read") {
     $author = validateData("author");
     $readTime = validateData("readTime");
     $readTime = intval($readTime);
-    $hiddenField = $_POST["uploadMoment"];
+    $hiddenField = $_POST["hiddenField"];
     $visibility = validateData("visibility");
     $imgOldFileType = $_POST["imgFileType"];
 
