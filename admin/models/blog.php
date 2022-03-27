@@ -82,7 +82,7 @@ if ($action == "read") {
     $readTime = intval($readTime);
     $uploadMomentSelect = validateData("uploadMomentSelect");
     $uploadMoment = validateData("uploadMoment");
-    $hiddenField = $_POST["uploadMoment"];
+    $hiddenField = $_POST["hiddenField"];
     $views = 0;
     $visibility = 1;
 
