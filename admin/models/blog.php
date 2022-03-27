@@ -159,9 +159,7 @@ if ($action == "read") {
             $data = "failed";
         }
     } else {
-        //$data = "failed";
-
-        echo var_dump($_SESSION);
+        $data = "failed";
     }
 
     echo $data;
