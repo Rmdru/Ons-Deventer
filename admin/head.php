@@ -1,3 +1,4 @@
+<?php require "sessions.php"; ?>
 <!--charset-->
 <meta charset="utf-8" />
 <!--author-->

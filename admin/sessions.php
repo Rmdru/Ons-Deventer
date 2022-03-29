@@ -1,6 +1,8 @@
 <?php
 //start session
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 //force https redirect
 if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
@@ -21,10 +23,10 @@ if (isset($_SESSION['userLoginTime'])) {
     
         setcookie("autologin", "", time() - (84600 * 366), "/", "", true, true);
     
-        header("location: ../inloggen?loggedOut=2");
+        header("location: https://" . $_SERVER['SERVER_NAME'] . "/inloggen?loggedOut=2");
     }
 } else {
-    header("location: ../inloggen?loggedOut=2");
+    header("location: https://" . $_SERVER['SERVER_NAME'] . "/inloggen?loggedOut=2");
 }
 
 //check if user has not changed his ip address
@@ -38,10 +40,10 @@ if (isset($_SESSION['userIpAddress'])) {
 
         setcookie("autologin", "", time() - (84600 * 366), "/", "", true, true);
 
-        header("location: ../inloggen?loggedOut=1");
+        header("location: https://" . $_SERVER['SERVER_NAME'] . "/inloggen?loggedOut=1");
     }
 } else {
-    header("location: ../inloggen?loggedOut=1");
+    header("location: https://" . $_SERVER['SERVER_NAME'] . "/inloggen?loggedOut=1");
 }
 
 //check if user is logged in
@@ -54,5 +56,5 @@ if (!isset($_SESSION['userLoggedIn'])) {
 
     setcookie("autologin", "", time() - (84600 * 366), "/", "", true, true);
 
-    header("location: ../inloggen");
+    header("location: https://" . $_SERVER['SERVER_NAME'] . "/inloggen");
 }

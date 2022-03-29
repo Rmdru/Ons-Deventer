@@ -35,7 +35,7 @@ $(".loginBtn").on("click", function() {
             if (data == "loggedInAsAdmin") {
                 window.location.href = "/admin/";
             } else if (data == "emailNotFound") {
-                $(".logIn .status").html("<p class='primaryTxt error'><span class='material-icons'>close</span> Het ingevulde e-mailadres bestaat niet, voer een ander e-mailadres in!</p>-");
+                $(".logIn .status").html("<p class='primaryTxt error'><span class='material-icons'>close</span> Het ingevulde e-mailadres bestaat niet, voer een ander e-mailadres in!</p>");
             } else if (data == "pswIncorrect") {
                 $(".logIn .status").html("<p class='primaryTxt error'><span class='material-icons'>close</span> Vul het juiste wachtwoord in! Als je je wachtwoord niet meer weet kun je <a class='link pswReset'>hier een nieuwe maken</a>.</p>");
             } else if (data == "tooMuchLoginAttempts") {
@@ -64,3 +64,28 @@ function goToStep(hide, show) {
         $(show).fadeIn();
     });
 }
+
+$(document).on("click", ".pswResetBtn", function() {
+    var csrfToken = $(".pswReset .csrfToken").val();
+    var email = $(".pswReset .inputField.email").val();
+    var hiddenField = $(".pswReset .hiddenField").val();
+
+    $.ajax({
+        url: "models/user.php?action=requestPswResetLink",
+        method: "POST",
+        data: {
+            'csrfToken': csrfToken,
+            'email': email,
+            'hiddenField': hiddenField,
+        }
+    })
+    .done(function(data) {
+        if (data == "success") {
+            $(".pswReset .status").html("<p class='primaryTxt success'><span class='material-icons'>check</span> Er is een e-mail verzonden met een wachtwoord herstel link. Via die link kan je een nieuw wachtwoord aanmaken. Zorg dat je browser tijdens dit proces niet afsluit.</p>");
+        } else if (data == "failed") {
+            $(".pswReset .status").html("<p class='primaryTxt error'><span class='material-icons'>close</span> Er is iets fout gegaan, probeer het opnieuw!</p>");
+        } else if (data == "noAccount") {
+            $(".pswReset .status").html("<p class='primaryTxt error'><span class='material-icons'>close</span> Er is geen account gevonden met het opgegeven e-mailadres.</p>");
+        }
+    })
+})

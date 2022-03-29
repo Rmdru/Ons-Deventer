@@ -1,3 +1,4 @@
+<?php require "sessions.php"; ?>
 <!--navigation-->
 <nav class="navbar">
     <div class="wrapper">

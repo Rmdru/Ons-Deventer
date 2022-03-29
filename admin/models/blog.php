@@ -1,7 +1,8 @@
 <?php
-//load config.php and functions.php
+//load config.php, sessions.php and functions.php
 require "../../config/config.php";
 require "../../functions/functions.php";
+require "../sessions.php";
 
 //data array
 $data = [];

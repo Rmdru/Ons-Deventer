@@ -1,3 +1,4 @@
+<?php require "sessions.php"; ?>
 <!--footer-->
 <!--swiper.js-->
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>

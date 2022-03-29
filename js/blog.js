@@ -150,12 +150,12 @@ if ($(".viewBlogDetail").length > 0) {
                                 output += "<hr class='secondaryDivider' />";
                                 output += "<p class='primaryTxt'><i class='material-icons'>share</i> Deel deze blog:</p>";
                                 output += "<div class='socialIconsWrapper'>";
-                                    output += "<a class='socialIcon' onclick='copyLink();' data-url='https://onsdeventer.nl/blog/" + url + "'><i class='material-icons'>link</i></a>";
-                                    output += "<a class='socialIcon' href='mailto:?body=https://onsdeventer.nl/blog/" + url + "' target='_blank'><i class='material-icons'>email</i></a>";
-                                    output += "<a class='socialIcon' href='https://wa.me/?text=https://onsdeventer.nl/blog/" + url + "' target='_blank'><i class='fab fa-whatsapp'></i></a>";
-                                    output += "<a class='socialIcon' href='http://www.facebook.com/sharer/sharer.php?u=https://onsdeventer.nl/blog/" + url + "' target='_blank'><i class='fab fa-facebook'></i></a>";
-                                    output += "<a class='socialIcon' href='https://twitter.com/intent/tweet?url=https://onsdeventer.nl/blog/" + url + "' target='_blank'><i class='fab fa-twitter'></i></a>";
-                                    output += "<a class='socialIcon' href='https://www.linkedin.com/cws/share?url=https://onsdeventer.nl/blog/" + url + "' target='_blank'><i class='fab fa-linkedin'></i></a>";
+                                    output += "<a class='socialIcon' onclick='copyLink();' data-url='https://" + window.location.hostname + "/blog/" + url + "'><i class='material-icons'>link</i></a>";
+                                    output += "<a class='socialIcon' href='mailto:?body=https://" + window.location.hostname + "/blog/" + url + "' target='_blank'><i class='material-icons'>email</i></a>";
+                                    output += "<a class='socialIcon' href='https://wa.me/?text=https://" + window.location.hostname + "/blog/" + url + "' target='_blank'><i class='fab fa-whatsapp'></i></a>";
+                                    output += "<a class='socialIcon' href='http://www.facebook.com/sharer/sharer.php?u=https://" + window.location.hostname + "/blog/" + url + "' target='_blank'><i class='fab fa-facebook'></i></a>";
+                                    output += "<a class='socialIcon' href='https://twitter.com/intent/tweet?url=https://" + window.location.hostname + "/blog/" + url + "' target='_blank'><i class='fab fa-twitter'></i></a>";
+                                    output += "<a class='socialIcon' href='https://www.linkedin.com/cws/share?url=https://" + window.location.hostname + "/blog/" + url + "' target='_blank'><i class='fab fa-linkedin'></i></a>";
                                 output += "</div>";
                             output += "</div>";
                             output += "<div class='tile'>";
