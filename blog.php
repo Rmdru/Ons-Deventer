@@ -26,6 +26,7 @@
                     </select>
                 </div>
                 <div class="viewBlogOverview"></div>
+                <button class="primaryBtn loadMoreBtn">Meer laden</button>
             </div>
         </div>
         <?php require "footer.php"; ?>

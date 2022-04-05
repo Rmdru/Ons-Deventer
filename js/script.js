@@ -59,11 +59,6 @@ $(function() {
     });
 });
 
-//disable name field
-function disableNameField() {
-    $("input#name").toggleClass("disabled");
-}
-
 //copy link
 function copyLink() {
     var url = $(this).data("url");
@@ -89,10 +84,10 @@ if ($("#captchaImg").length > 0) {
 if ($(".showPswToggle").length > 0) {
     $(".showPswToggle").on("click" ,function() {
         if ($(this).hasClass("visible")) {
-            $("#psw").attr("type", "password");
+            $(".inputField.psw").attr("type", "password");
             $(this).html("visibility");
         } else {
-            $("#psw").attr("type", "text");
+            $(".inputField.psw").attr("type", "text");
             $(this).html("visibility_off");
         }
         $(this).toggleClass("visible");
@@ -109,3 +104,15 @@ if (page != undefined) {
         }
     })
 }
+
+//generate random psw
+$(document).on("click", ".generateRandomPswBtn", function() {
+    $.ajax({
+        url: "functions/functions?action=generatePsw",
+        method: "POST"
+    })
+    .done(function(data) {
+        $(".inputField.psw").val(data);
+        $(".inputField.pswRepeat").val(data);
+    }) 
+})

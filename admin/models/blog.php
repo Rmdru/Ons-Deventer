@@ -189,7 +189,7 @@ if ($action == "read") {
         if ($stmt->execute()) {
             $_SESSION['userLoginTime'] = time();
 
-            header("location: https://" . $_SERVER["SERVER_NAME"] . "/admin/blog?blogUploadStatus=success");
+            header("location: https://" . $_SERVER["SERVER_NAME"] . "/admin/?blogUploadStatus=success");
         } else {
             header("location: https://" . $_SERVER["SERVER_NAME"] . "/admin/blog-toevoegen?blogUploadStatus=failed");
         }
@@ -342,7 +342,7 @@ if ($action == "read") {
             if ($stmt->execute()) {
                 $_SESSION['userLoginTime'] = time();
 
-                header("location: https://" . $_SERVER["SERVER_NAME"] . "/admin/blog?blogEditStatus=success");
+                header("location: https://" . $_SERVER["SERVER_NAME"] . "/admin/?blogEditStatus=success");
             } else {
                 header("location: https://" . $_SERVER["SERVER_NAME"] . "/admin/blog-toevoegen?blogEditStatus=failed");
             }
@@ -350,7 +350,7 @@ if ($action == "read") {
             header("location: https://" . $_SERVER["SERVER_NAME"] . "/admin/blog-toevoegen?blogEditStatus=failed");
         }
     } else {
-        header("location: https://" . $_SERVER["SERVER_NAME"] . "/admin/blog?blogEditStatus=success");
+        header("location: https://" . $_SERVER["SERVER_NAME"] . "/admin/?blogEditStatus=success");
     }
 } else if ($action == "delete") {
     $url = validateData("url");

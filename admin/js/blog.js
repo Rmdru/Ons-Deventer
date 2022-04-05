@@ -89,7 +89,7 @@ function deleteBlog(url) {
         if (data == "failed") {
             $(".status").html("<p class='error'><span class='material-icons'>close</span> Er is iets fout gegaan. Vul alle velden correct in!</p>");
         } else if (data == "success") {
-            window.location.href = "blog?blogDeleteStatus=successful";
+            window.location.href = "/admin/?blogDeleteStatus=successful";
         }
     })
 }

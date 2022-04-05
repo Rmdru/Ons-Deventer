@@ -8,3 +8,4 @@
 <script src="../js/script.js"></script>
 <script src="js/script.js"></script>
 <script src="js/blog.js"></script>
+<script src="js/user.js"></script>

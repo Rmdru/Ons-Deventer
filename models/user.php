@@ -51,7 +51,7 @@ if ($action == "logIn") {
                     $blocked = $row['blocked'];
                     if ($blocked == 0) {
                         //query to verify if psw is correct
-                        $sql = "SELECT uuid, role FROM `user` WHERE 1=1 AND email = :email AND psw = :psw";
+                        $sql = "SELECT uuid, email, role FROM `user` WHERE 1=1 AND email = :email AND psw = :psw";
                     
                         //prepare query
                         if ($stmt = $dbh->prepare($sql)) {
@@ -64,9 +64,11 @@ if ($action == "logIn") {
                                         //login user and set sessions
                                         $uuid = $row["uuid"];
                                         $role = $row["role"];
+                                        $email = $row["email"];
                                         $_SESSION['userLoggedIn'] = 1;
                                         $_SESSION['userLoginTime'] = time();
                                         $_SESSION['userRole'] = $role;
+                                        $_SESSION['userEmail'] = $email;
                                         $_SESSION['userUuid'] = $uuid;
                                         $_SESSION['userIpAddress'] = $_SERVER["REMOTE_ADDR"];
 
@@ -131,7 +133,7 @@ if ($action == "logIn") {
     }
 
     echo $data;
-} else if ($action = "requestPswResetLink") {
+} else if ($action == "requestPswResetLink") {
     $error = 0;
     $email = validateData("email");
     $csrfTokenInput = $_POST["csrfToken"];
@@ -154,7 +156,7 @@ if ($action == "logIn") {
     }
 
     if ($error == 0) {
-        $sql = "SELECT email FROM `user` WHERE 1=1 AND email = :email AND blocked = 0";
+        $sql = "SELECT email FROM `user` WHERE 1=1 AND email = :email";
 
         //prepare query
         if ($stmt = $dbh->prepare($sql)) {
@@ -163,7 +165,7 @@ if ($action == "logIn") {
             if ($stmt->execute()) {
                 if ($stmt->rowCount() > 0) {
                     $charsArray = [];
-                    $charsArray = array_merge(range('a', 'z'), range('A', 'Z'), range('0', '9'), array("!","@","#","$","%","^","&","*","(",")","{","}","|","[","]",";",":","/"));
+                    $charsArray = array_merge(range('a', 'z'), range('A', 'Z'), range('0', '9'), array("!","@","$","^","*","(",")","{","}","|","[","]",";",":","/"));
 
                     for ($i = 0; $i < 256; $i++) {
                         $randomChar = array_rand($charsArray);
@@ -226,6 +228,53 @@ if ($action == "logIn") {
                 } else {
                     $data = "noAccount";
                 }
+            } else {
+                $data = "failed";
+            }
+        } else {
+            $data = "failed";
+        }
+    } else {
+        $data = "failed";
+    }
+    
+    echo $data;
+} else if ($action == "resetPsw") {
+    $error = 0;
+    $psw = $_POST["psw"];
+    $pswResetEmail = $_SESSION["pswResetEmail"];
+    $csrfTokenInput = $_POST["csrfToken"];
+    $csrfTokenSession = $_SESSION["csrfToken"];
+    $hiddenField = $_POST["hiddenField"];
+
+    //check if hidden field is empty
+    if (!empty($hiddenField)) {
+        $error++;
+    }
+
+    //check if password field is empty
+    if (empty($psw)) {
+        $error++;
+    }
+
+    //encrypt password
+    $psw = sha1($psw);
+
+    //check if csrf token is correct
+    if ($csrfTokenInput != $csrfTokenSession) {
+        $error++;
+    }
+
+    if ($error == 0) {
+        $sql = "UPDATE `user` SET psw = :psw WHERE 1=1 AND email = :email";
+
+        //prepare query
+        if ($stmt = $dbh->prepare($sql)) {
+            $stmt->bindParam(":email", $pswResetEmail);
+            $stmt->bindParam(":psw", $psw);
+            //execute query
+            if ($stmt->execute()) {
+                $data = "success";
             } else {
                 $data = "failed";
             }

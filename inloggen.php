@@ -32,8 +32,10 @@ if (isset($_SESSION['userLoggedIn'])) {
                     <input type="hidden" class="csrfToken" value="<?php echo $csrfToken; ?>" />
                     <input type="hidden" class="hiddenField" />
                     <input type="text" class="inputField email" placeholder="E-mailadres" />
-                    <input type="password" class="inputField psw" placeholder="Wachtwoord" />
-                    <span class="material-icons showPswToggle">visibility</span>
+                        <input type="password" class="inputField psw" placeholder="Wachtwoord" />
+                    <div class="inputIcons">
+                        <span class="material-icons showPswToggle inputIcon">visibility</span>
+                    </div>
                     <a class="link pswReset">Wachtwoord vergeten?</a>
                     <div class='checkbox'>
                         <label for='autologin'>

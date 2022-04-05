@@ -27,6 +27,8 @@ $action = validateData("action");
 
 if ($action == "generateCaptcha") {
     generateCaptcha();
+} else if ($action == "generatePsw") {
+    generatePsw();
 }
 
 //generate uuid
@@ -53,4 +55,20 @@ function generateCaptcha() {
     }
     
     $_SESSION['captcha'] = $captchaCode;    
+}
+
+//generate captcha
+function generatePsw() {
+    $charsArray = array_merge(range('a', 'z'), range('A', 'Z'), range('0', '9'), array("!","@","$","^","*","(",")","{","}","|","[","]",";",":","/"));
+    
+    for ($i = 0; $i < 16; $i++) {
+      $randomChar = array_rand($charsArray);
+      if ($i != 0) {
+        $randomPsw .= $charsArray[$randomChar];
+      } else {
+        $randomPsw = $charsArray[$randomChar];
+      }
+    }
+    
+    echo $randomPsw; 
 }

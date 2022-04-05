@@ -107,6 +107,10 @@ a {
     color: var(--green);
 }
 
+.success, .success a, .success .link {
+    color: var(--green);
+}
+
 .secondaryTxt {
     color: var(--darkGray);
 }
@@ -864,9 +868,17 @@ input[type=datetime-local] {
     width: 100%;
 }
 
-input + span.material-icons {
-    float: right;
+.inputIcons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.inputIcon:last-child {
     margin-right: 25px;
+}
+
+.inputIcon {
+    margin-right: 10px;
     margin-top: -35px;
     position: relative;
     cursor: pointer;
@@ -978,7 +990,14 @@ input + span.material-icons {
 
 .inloggen .logIn .link, .inloggen .link.back {
     margin: 10px 0;
+}
+
+.link.pswReset {
     display: block;
+}
+
+p .link.pswReset {
+    display: inline;
 }
 
 .inloggen .link.back {
@@ -997,7 +1016,7 @@ div.pswReset {
     height: 50px;
 }
 
-html.socialMedia .footer, html.contact .footer, html.inloggen .footer {
+html.socialMedia .footer, html.contact .footer, html.inloggen .footer, html.nieuw-wachtwoord .footer {
     position: fixed;
     width: 100%;
     bottom: 0;

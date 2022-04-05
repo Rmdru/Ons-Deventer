@@ -81,11 +81,44 @@ $(document).on("click", ".pswResetBtn", function() {
     })
     .done(function(data) {
         if (data == "success") {
-            $(".pswReset .status").html("<p class='primaryTxt success'><span class='material-icons'>check</span> Er is een e-mail verzonden met een wachtwoord herstel link. Via die link kan je een nieuw wachtwoord aanmaken. Zorg dat je browser tijdens dit proces niet afsluit.</p>");
+            $(".pswReset .status").html("<p class='primaryTxt success'><span class='material-icons'>check</span> Er is een e-mail verzonden met een wachtwoord herstel link. Via die link kan je een nieuw wachtwoord aanmaken. Zorg dat je de browser tijdens dit proces niet afsluit.</p>");
         } else if (data == "failed") {
             $(".pswReset .status").html("<p class='primaryTxt error'><span class='material-icons'>close</span> Er is iets fout gegaan, probeer het opnieuw!</p>");
         } else if (data == "noAccount") {
             $(".pswReset .status").html("<p class='primaryTxt error'><span class='material-icons'>close</span> Er is geen account gevonden met het opgegeven e-mailadres.</p>");
         }
     })
+})
+
+$(document).on("click", ".newPswBtn", function() {
+    var error = 0;
+    var csrfToken = $(".csrfToken").val();
+    var psw = $(".inputField.psw").val();
+    var pswRepeat = $(".inputField.pswRepeat").val();
+    var hiddenField = $(".hiddenField").val();
+
+    if (psw != pswRepeat) {
+        error++;
+    }
+
+    if (error == 0) {
+        $.ajax({
+            url: "models/user.php?action=resetPsw",
+            method: "POST",
+            data: {
+                'csrfToken': csrfToken,
+                'psw': psw,
+                'hiddenField': hiddenField,
+            }
+        })
+        .done(function(data) {
+            if (data == "success") {
+                $(".status").html("<p class='primaryTxt success'><span class='material-icons'>check</span> Wachtwoord succesvol gewijzigd. Het oude wachtwoord is vanaf nu ongeldig. Vanaf nu kan je alleen nog maar inloggen met je nieuwe wachtwoord. <a class='link' href='/inloggen'>Je kunt hier inloggen.</a></p>");
+            } else {
+                $(".status").html("<p class='primaryTxt error'><span class='material-icons'>close</span> Er is iets fout gegaan, probeer het opnieuw!</p>");
+            }
+        })
+    } else {
+        $(".status").html("<p class='primaryTxt error'><span class='material-icons'>close</span> Er is iets fout gegaan, mogelijk komen de wachtwoorden niet overeen, probeer het opnieuw!</p>");
+    }
 })

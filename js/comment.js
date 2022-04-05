@@ -1,4 +1,9 @@
 //view comments
+//disable name field
+function disableNameField() {
+    $("input#name").toggleClass("disabled");
+}
+
 function viewComments(blog, response = "") {
     $.getJSON("models/comment?action=read&blog=" + blog, function(data) {
         var output = "";

@@ -81,7 +81,7 @@ function viewBlogOverview(sortBy) {
                 }
                 var imgFileType = data[i].imgFileType;
         
-                output += "<div class='flexItem' data-url='blog-detail?blog=" + url + "'>";
+                output += "<div class='flexItem displayNone' data-url='blog-detail?blog=" + url + "'>";
                     output += "<img src='img/blog/" + uuid + "." + imgFileType + "' class='gridImg' />";
                     output += "<h3 class='title'>" + title + "</h3>";
                     output += "<p class='primaryTxt'>" + bodyTxt + "</p>";
@@ -95,6 +95,33 @@ function viewBlogOverview(sortBy) {
             $(".viewBlogOverview .flexItem").on("click", function() {
                 var url = $(this).children(".primaryBtn").attr("href");
                 window.location.href = url;
+            })
+
+            var visibleItems = 0;
+            var showPerClick = 9;
+
+            if ($(".flexItem").length < showPerClick) {
+                $(".loadMoreBtn").hide();
+            }
+
+            $(".flexItem.displayNone").each(function(i) {
+                if (i < showPerClick) {
+                    $(this).removeClass("displayNone");
+                    visibleItems++;
+                }
+            })
+
+            $(".loadMoreBtn").on("click", function() {
+                $(".flexItem.displayNone").each(function(i) {
+                    if (i < showPerClick) {
+                        $(this).removeClass("displayNone");
+                        visibleItems++;
+                    }
+                    
+                    if (visibleItems == $(".flexItem:not(.displayNone)").length) {
+                        $(".loadMoreBtn").hide();
+                    }
+                })
             })
         }
     })
