@@ -4,14 +4,6 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-//force https redirect
-if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
-    $location = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-    header('HTTP/1.1 301 Moved Permanently');
-    header('Location: ' . $location);
-    exit;
-}
-
 //check if the session time is valid
 if (isset($_SESSION['userLoginTime'])) {
     if ((time() - 3600) > $_SESSION['userLoginTime']) {

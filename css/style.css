@@ -770,13 +770,13 @@ input[type=datetime-local] {
     display: none;
 }
 
-.team .flexItem img {
-    width: 70%;
-    margin: 0 auto;
+.team .grid {
+    grid-template-columns: repeat(2, 1fr);
 }
 
-.team .flexItem .title {
-    flex-grow: 0;
+.team .grid img {
+    margin: 0 auto;
+    display: block;
 }
 
 .social .column {

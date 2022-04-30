@@ -73,10 +73,8 @@ if ($action == "read") {
     $bodyTxt = $_POST["bodyTxt"];
     $bodyTxtSanitized = $bodyTxt;
     $bodyTxtSanitized = strip_tags($bodyTxtSanitized);
-    $bodyTxtSanitized = htmlspecialchars($bodyTxtSanitized);
     $bodyTxtSanitized = stripslashes($bodyTxtSanitized);
     $bodyTxtSanitized = trim($bodyTxtSanitized);
-    $bodyTxtSanitized = htmlentities($bodyTxtSanitized);
     $url = validateData("url");
     $author = validateData("author");
     $readTime = validateData("readTime");
@@ -235,10 +233,8 @@ if ($action == "read") {
     $bodyTxt = $_POST["bodyTxt"];
     $bodyTxtSanitized = $bodyTxt;
     $bodyTxtSanitized = strip_tags($bodyTxtSanitized);
-    $bodyTxtSanitized = htmlspecialchars($bodyTxtSanitized);
     $bodyTxtSanitized = stripslashes($bodyTxtSanitized);
     $bodyTxtSanitized = trim($bodyTxtSanitized);
-    $bodyTxtSanitized = htmlentities($bodyTxtSanitized);
     $url = validateData("url");
     $author = validateData("author");
     $readTime = validateData("readTime");

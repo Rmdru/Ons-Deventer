@@ -15,10 +15,8 @@ function validateData($value) {
     } else {
         return;
     }
-    $value = htmlspecialchars($value);
     $value = stripslashes($value);
     $value = trim($value);
-    $value = htmlentities($value);
     return $value;
 }
 

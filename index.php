@@ -36,12 +36,6 @@
                 <div class="swiper-pagination"></div>
             </div>
         </header>
-        <!--highlighted section-->
-        <div class="highlightedSection">
-            <h2 class="title">Coming soon</h2>
-            <p class="primaryTxt">Wij zijn achter de schermen nog druk bezig! Maar neem alvast een kijkje ;)<br />Volg ons Instagram account om up-to-date te blijven.</p>
-            <a href="https://www.instagram.com/ons.deventer/" target="_blank" rel="noopener" class="primaryBtn animated"><i class="fab fa-instagram"></i>Bekijk ons Instagram<i class="material-icons">keyboard_arrow_right</i></a>
-        </div>
         <div class="wrapper">
             <!--about section-->
             <div class="section row">
