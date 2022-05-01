@@ -13,22 +13,22 @@
             <div class="swiper headerSlider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="img/headerImg1.jpg" alt="Deventer" class="headerImg" />
+                        <img src="img/headerImg1.jpg" alt="Deventer" class="headerImg" width='100' height='100' />
                     </div>
                     <div class="swiper-slide">
-                        <img src="img/headerImg2.jpg" alt="Deventer" class="headerImg" />
+                        <img src="img/headerImg2.jpg" alt="Deventer" class="headerImg" width='100' height='100' />
                     </div>
                     <div class="swiper-slide">
-                        <img src="img/headerImg3.jpg" alt="Deventer" class="headerImg" />
+                        <img src="img/headerImg3.jpg" alt="Deventer" class="headerImg" width='100' height='100' />
                     </div>
                     <div class="swiper-slide">
-                        <img src="img/headerImg4.jpg" alt="Deventer" class="headerImg" />
+                        <img src="img/headerImg4.jpg" alt="Deventer" class="headerImg" width='100' height='100' />
                     </div>
                     <div class="swiper-slide">
-                        <img src="img/headerImg5.jpg" alt="Deventer" class="headerImg" />
+                        <img src="img/headerImg5.jpg" alt="Deventer" class="headerImg" width='100' height='100' />
                     </div>
                     <div class="swiper-slide">
-                        <img src="img/headerImg6.jpg" alt="Deventer" class="headerImg" />
+                        <img src="img/headerImg6.jpg" alt="Deventer" class="headerImg" width='100' height='100' />
                     </div>
                 </div>
                 <div class="swiper-button-next"></div>
@@ -45,7 +45,7 @@
                     <a href="wie-wij-zijn" class="primaryBtn">Kom meer te weten over ons</a>
                 </div>
                 <div class="column30">
-                    <img src="img/aboutTeamImg1.jpg" alt="Deventer" class="img" />
+                    <img src="img/aboutTeamImg1.jpg" alt="Deventer" class="img" width='100' height='100' />
                 </div>
             </div>
             <!--blog section-->

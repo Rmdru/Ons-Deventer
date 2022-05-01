@@ -5,7 +5,7 @@
             <a class="socialIcon" href="https://www.instagram.com/ons.deventer/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
             <a class="socialIcon" href="https://wa.me/message/4V4DMCESYEYFH1" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
             <a class="socialIcon" href="mailto:onsdeventer0570@gmail.com" target="_blank" rel="noopener"><i class="material-icons">mail</i></a>
-            <a class="socialIcon" href="tel:+31 6 26666104" target="_blank" rel="noopener"><i class="material-icons">phone</i></a>
+            <a class="socialIcon" href="tel:+31 6 26666104"><i class="material-icons">phone</i></a>
         </div>
         <div>
             <p class="secondaryTxt">© Ons Deventer <?php echo date("Y"); ?></p>

@@ -26,7 +26,7 @@ if ($(".viewBlogOverviewSm").length > 0) {
                     var imgFileType = data[i].imgFileType;
             
                     output += "<div class='flexItem'>";
-                        output += "<img src='img/blog/" + uuid + "." + imgFileType + "' class='gridImg' />";
+                        output += "<img src='img/blog/" + uuid + "." + imgFileType + "' class='gridImg' width='100' height='100' />";
                         output += "<h3 class='title'>" + title + "</h3>";
                         output += "<p class='primaryTxt'>" + bodyTxt + "</p>";
                         output += "<p class='secondaryTxt'>" + dateTime + " - Leestijd: " + readTime + "</p>";
@@ -82,7 +82,7 @@ function viewBlogOverview(sortBy) {
                 var imgFileType = data[i].imgFileType;
         
                 output += "<div class='flexItem displayNone' data-url='blog-detail?blog=" + url + "'>";
-                    output += "<img src='img/blog/" + uuid + "." + imgFileType + "' class='gridImg' />";
+                    output += "<img src='img/blog/" + uuid + "." + imgFileType + "' class='gridImg' width='100' height='100' />";
                     output += "<h3 class='title'>" + title + "</h3>";
                     output += "<p class='primaryTxt'>" + bodyTxt + "</p>";
                     output += "<p class='secondaryTxt'>" + dateTime + " - Leestijd: " + readTime + "</p>";
@@ -118,7 +118,7 @@ function viewBlogOverview(sortBy) {
                         visibleItems++;
                     }
                     
-                    if (visibleItems == $(".flexItem:not(.displayNone)").length) {
+                    if (visibleItems == $(".flexItem").length) {
                         $(".loadMoreBtn").hide();
                     }
                 })
@@ -155,7 +155,7 @@ if ($(".viewBlogDetail").length > 0) {
                 
                 $(".blogTitle").html(title + " - Ons Deventer");
                 output += "<header class='header'>";
-                    output += "<img src='img/blog/" + uuid + "." + imgFileType + "' class='headerImg' />";
+                    output += "<img src='img/blog/" + uuid + "." + imgFileType + "' class='headerImg' width='100' height='100' />";
                     output += "<div class='headerBar'>";
                         output += "<div class='wrapper'>";
                             output += "<h1 class='title'>" + title + "</h1>";
@@ -220,7 +220,7 @@ if ($(".viewBlogDetail").length > 0) {
                         var imgFileType = data[i].imgFileType;
     
                         output += "<a href='blog-detail.php?blog=" + url + "' class='recentBlog'>";
-                            output += "<img class='img' src='img/blog/" + uuid + "." + imgFileType + "'>";
+                            output += "<img class='img' src='img/blog/" + uuid + "." + imgFileType + "' width='100' height='100'>";
                             output += "<p class='txt'>" + title + "</p>";
                         output += "</a>";
         
