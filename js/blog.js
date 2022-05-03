@@ -165,12 +165,7 @@ if ($(".viewBlogDetail").length > 0) {
                 output += "<div class='wrapper'>";
                     output += "<div class='row'>";
                         output += "<div class='column65'>";
-                            output += "<p class='primaryTxt bodyTxt'>" + bodyTxt + "</p>";
-                            output += "<hr class='primaryDivider' />";
-                            output += "<div class='viewComments'></div>";
-                        output += "</div>";
-                        output += "<div class='column30'>";
-                            output += "<div class='tile'>";
+                            output += "<div class='tile mobileOnly'>";
                                 output += "<p class='primaryTxt'><i class='material-icons'>event</i> " + dateTimeFormatted + "</p>";
                                 output += "<p class='primaryTxt'><i class='material-icons'>schedule</i> Leestijd: " + readTime + "</p>";
                                 output += "<p class='primaryTxt'><i class='material-icons'>person</i> Door: " + author + "</p>";
@@ -185,6 +180,27 @@ if ($(".viewBlogDetail").length > 0) {
                                     output += "<a class='socialIcon' href='https://www.linkedin.com/cws/share?url=https://" + window.location.hostname + "/blog/" + url + "' target='_blank'><i class='fab fa-linkedin'></i></a>";
                                 output += "</div>";
                             output += "</div>";
+                            output += "<p class='primaryTxt bodyTxt'>" + bodyTxt + "</p>";
+                            output += "<hr class='primaryDivider' />";
+                            output += "<div class='viewComments'></div>";
+                        output += "</div>";
+                        output += "<div class='column30'>";
+                            output += "<div class='tile desktopOnly'>";
+                                output += "<p class='primaryTxt'><i class='material-icons'>event</i> " + dateTimeFormatted + "</p>";
+                                output += "<p class='primaryTxt'><i class='material-icons'>schedule</i> Leestijd: " + readTime + "</p>";
+                                output += "<p class='primaryTxt'><i class='material-icons'>person</i> Door: " + author + "</p>";
+                                output += "<hr class='secondaryDivider' />";
+                                output += "<p class='primaryTxt'><i class='material-icons'>share</i> Deel deze blog:</p>";
+                                output += "<div class='socialIconsWrapper'>";
+                                    output += "<a class='socialIcon' onclick='copyLink();' data-url='https://" + window.location.hostname + "/blog/" + url + "'><i class='material-icons'>link</i></a>";
+                                    output += "<a class='socialIcon' href='mailto:?body=https://" + window.location.hostname + "/blog/" + url + "' target='_blank'><i class='material-icons'>email</i></a>";
+                                    output += "<a class='socialIcon' href='https://wa.me/?text=https://" + window.location.hostname + "/blog/" + url + "' target='_blank'><i class='fab fa-whatsapp'></i></a>";
+                                    output += "<a class='socialIcon' href='http://www.facebook.com/sharer/sharer.php?u=https://" + window.location.hostname + "/blog/" + url + "' target='_blank'><i class='fab fa-facebook'></i></a>";
+                                    output += "<a class='socialIcon' href='https://twitter.com/intent/tweet?url=https://" + window.location.hostname + "/blog/" + url + "' target='_blank'><i class='fab fa-twitter'></i></a>";
+                                    output += "<a class='socialIcon' href='https://www.linkedin.com/cws/share?url=https://" + window.location.hostname + "/blog/" + url + "' target='_blank'><i class='fab fa-linkedin'></i></a>";
+                                output += "</div>";
+                            output += "</div>";
+                            output += "<hr class='primaryDivider mobileOnly' />";
                             output += "<div class='tile'>";
                                 output += "<p class='txt'>Recente blogs:</p>";
                                 output += "<div class='viewRecentBlogs'></div>";
@@ -195,14 +211,14 @@ if ($(".viewBlogDetail").length > 0) {
 
                 $(".viewBlogDetail").html(output);
 
-                viewRecentBlogs();
+                viewRecentBlogs(url);
                 viewComments(url);
             }
         }
     })
 
-    function viewRecentBlogs() {
-        $.getJSON("models/blog?action=read&sortBy=dateTimeDesc", function(data) {
+    function viewRecentBlogs(url) {
+        $.getJSON("models/blog?action=readRecent&sortBy=dateTimeDesc&url=" + url, function(data) {
             var output = "";
             if (data == "failed") {
                 output += "<p class='txt'>Er is iets fout gegaan.</p>";

@@ -43,6 +43,10 @@
                                 <span class='fab fa-linkedin'></span>
                                 <p class="primaryTxt">LinkedIn</p>
                             </a>
+                            <button class='socialIcon shareSiteBttn' data-title="Ons Deventer" data-url="https://onsdeventer.nl/">
+                                <i class="material-icons">share</i>
+                                <p class="primaryTxt">Delen op een andere manier</p>
+                            </button>
                         </div>
                     </div>
                 </div>

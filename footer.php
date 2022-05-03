@@ -12,7 +12,6 @@
         </div>
         <div>
             <a href="privacyverklaring" class="link">Privacyverklaring</a>
-            <a href="cookieverklaring" class="link">Cookieverklaring</a>
         </div>
     </div>
 </footer>

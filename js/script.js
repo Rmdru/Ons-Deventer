@@ -71,11 +71,11 @@ function copyLink() {
 //load captcha img
 if ($("#captchaImg").length > 0) {
     $.ajax({
-        url: "functions/functions?action=generateCaptcha",
+        url: "https://" + window.location.hostname + "/functions/functions?action=generateCaptcha",
         method: "POST"
     })
     .done(function() {
-        $("#captchaImg").attr("src", "img/captchaImg.php");
+        $("#captchaImg").attr("src", "https://" + window.location.hostname + "/img/captchaImg.php");
     }) 
 }
 
@@ -108,7 +108,7 @@ if (page != undefined) {
 //generate random psw
 $(document).on("click", ".generateRandomPswBtn", function() {
     $.ajax({
-        url: "functions/functions?action=generatePsw",
+        url: "https://" + window.location.hostname + "/functions/functions?action=generatePsw",
         method: "POST"
     })
     .done(function(data) {
@@ -116,3 +116,29 @@ $(document).on("click", ".generateRandomPswBtn", function() {
         $(".inputField.pswRepeat").val(data);
     }) 
 })
+
+if ($(".hamburgerIcon").length > 0) {
+	$(document).on("click", ".hamburgerIcon", function() {
+		$("html").toggleClass("hamburgerOpen");
+	})
+	
+	$(document).on("click", ".menu-item-61 a", function() {
+		$("html").removeClass("hamburgerOpen");
+	})
+}
+
+if ($(".shareSiteBttn").length > 0) {
+    const btn = document.querySelector('.shareSiteBttn');
+    
+    var title = btn.getAttribute("data-title");
+    var url = btn.getAttribute("data-url");
+    const shareData = {
+        title: title,
+        url: url
+    }
+    
+    
+    btn.addEventListener('click', async () => {
+        navigator.share(shareData)
+    });
+}

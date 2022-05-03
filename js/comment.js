@@ -16,12 +16,12 @@ function viewComments(blog, response = "") {
         output += "<h2 class='title'>Reacties (" + amount + ")</h2>";
         output += "<div class='commentForm'>";
             output += "<input type='hidden' id='hiddenField' />";
+            output += "<input type='text' class='inputField' placeholder='Naam' id='name' />";
             output += "<div class='checkbox'>";
                 output += "<label for='anonymous'>";
                     output += "<input type='checkbox' id='anonymous' onchange='disableNameField(this);' />Ik wil anoniem blijven";
                 output += "</label>";
             output += "</div>";
-            output += "<input type='text' class='inputField' placeholder='Naam' id='name' />";
             output += "<textarea rows='5' class='inputField' placeholder='Reactie' id='comment'></textarea>";
             output += "<button class='primaryBtn submitComment'>Reactie plaatsen</button>";
             output += "<div class='error'></div>";
