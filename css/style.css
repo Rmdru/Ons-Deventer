@@ -1138,61 +1138,20 @@ html.socialMedia .footer, html.contact .footer, html.inloggen .footer, html.nieu
     .viewBlogOverviewSm, .viewBlogOverview {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .table {
+        overflow-x: auto;
+        display: block;
+    }
+
+    .table th {
+        white-space: pre;
+    }
 }
 
 @media only screen and (max-width: 1024px) {
     .viewBlogOverviewSm, .viewBlogOverview {
         grid-template-columns: minmax(0, 1fr);
-    }
-}
-
-@media only screen and (max-width: 767px) {   
-    h1 {
-        font-size: 30px;
-    }
-    
-    h2 {
-        font-size: 30px;
-    }
-    
-    h3 {
-        font-size: 25px;
-    }
-    
-    h4 {
-        font-size: 18px;
-    }
-    
-    h2 + p {
-        margin-top: 0px;
-    }
-    
-    h3 + p {
-        margin-top: 0px;
-    }
-    
-    p, li, .notification {
-        font-size: 16px;
-    }
-    
-    p + p {
-        margin-top: 0px;
-    }
-    
-    .link, .bodyTxt a {
-        font-size: 16px;
-    }
-
-    .primaryBtn, .secondaryBtn {
-        font-size: 16px;
-        width: 100%;
-        box-sizing: border-box;
-        justify-content: center;
-        display: flex!important;
-    }
-
-    .wrapper {
-        width: 90%;
     }
 
     .hamburgerIcon {
@@ -1292,6 +1251,104 @@ html.socialMedia .footer, html.contact .footer, html.inloggen .footer, html.nieu
         justify-content: center;
     }
 
+    .footer {
+        height: auto;
+        padding: 25px;
+    }
+
+    .footer .row {
+        flex-flow: column;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .footer .row div {
+        width: 100%;
+    }
+
+    .footer .secondaryTxt {
+        margin: 0;
+    }
+
+    .navbar .desktopOnly, .footer .desktopOnly {
+        display: none;
+    }
+
+    .navbar .mobileOnly, .footer .mobileOnly {
+        display: block;
+    }
+
+    .viewBlogDetail .row {
+        flex-flow: column;
+    }
+
+    .viewBlogDetail .column65 .tile.mobileOnly {
+        margin-bottom: 40px;
+    }
+
+    .viewBlogDetail .column65, .viewBlogDetail .column30 {
+        width: 100%;
+    }
+
+    html.socialMedia .footer, html.contact .footer, html.inloggen .footer, html.nieuw-wachtwoord .footer {
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    .contact .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 767px) {   
+    h1 {
+        font-size: 30px;
+    }
+    
+    h2 {
+        font-size: 30px;
+    }
+    
+    h3 {
+        font-size: 25px;
+    }
+    
+    h4 {
+        font-size: 18px;
+    }
+    
+    h2 + p {
+        margin-top: 0px;
+    }
+    
+    h3 + p {
+        margin-top: 0px;
+    }
+    
+    p, li, .notification {
+        font-size: 16px;
+    }
+    
+    p + p {
+        margin-top: 0px;
+    }
+    
+    .link, .bodyTxt a {
+        font-size: 16px;
+    }
+
+    .primaryBtn, .secondaryBtn {
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+        justify-content: center;
+        display: flex!important;
+    }
+
+    .wrapper {
+        width: 90%;
+    }
+
     .section {
         margin-top: 50px;
         margin-bottom: 50px;
@@ -1318,14 +1375,6 @@ html.socialMedia .footer, html.contact .footer, html.inloggen .footer, html.nieu
         margin-top: 25px;
     }
 
-    .viewBlogDetail .row {
-        flex-flow: column;
-    }
-
-    .viewBlogDetail .column65 .tile.mobileOnly {
-        margin-bottom: 40px;
-    }
-
     .checkbox label, .inputField {
         font-size: 16px;
     }
@@ -1345,11 +1394,6 @@ html.socialMedia .footer, html.contact .footer, html.inloggen .footer, html.nieu
     .social .grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1em;
-    }
-
-    html.socialMedia .footer, html.contact .footer, html.inloggen .footer, html.nieuw-wachtwoord .footer {
-        position: relative;
-        box-sizing: border-box;
     }
 
     .team .grid {
@@ -1404,15 +1448,6 @@ html.socialMedia .footer, html.contact .footer, html.inloggen .footer, html.nieu
         box-sizing: border-box;
     }
 
-    .table {
-        overflow-x: auto;
-        display: block;
-    }
-
-    .table th {
-        white-space: pre;
-    }
-
     .blog .popup .window {
         width: 90%;
         box-sizing: border-box;
@@ -1421,25 +1456,6 @@ html.socialMedia .footer, html.contact .footer, html.inloggen .footer, html.nieu
     .blog .popup .window .btnGroup {
         flex-flow: column;
         gap: unset;
-    }
-
-    .footer {
-        height: auto;
-        padding: 25px;
-    }
-
-    .footer .row {
-        flex-flow: column;
-        gap: 20px;
-        width: 100%;
-    }
-
-    .footer .row div {
-        width: 100%;
-    }
-
-    .footer .secondaryTxt {
-        margin: 0;
     }
 
     .desktopOnly {
