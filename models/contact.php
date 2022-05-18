@@ -64,7 +64,7 @@ if ($action == "send") {
         mail($mailTo, $subject, $content, $headers);
         echo "success";
     } else {
-        echo "failed<br />" . $captchaSession . " = " . $captchaInput;
+        echo "failed";
     }
 
     generateCaptcha();
