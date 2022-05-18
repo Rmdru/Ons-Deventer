@@ -90,8 +90,7 @@ if ($action == "read") {
             echo "failed";
         }
     } else {
-        // echo "failed";
-        echo "{$csrfTokenSession}<br/><br/>{$csrfTokenInput}";
+        echo "failed";
     }
 } else {
     $data = "failed";

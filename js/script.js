@@ -67,6 +67,7 @@ function copyLink() {
     showNotification();
 }
 
+
 //load captcha img
 if ($("#captchaImg").length > 0) {
     $.ajax({
