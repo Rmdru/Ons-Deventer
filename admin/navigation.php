@@ -9,6 +9,7 @@
         </div>
         <div class="navbarLinks desktopOnly">
             <a href="/admin/" class="link" data-link="blog">Blog</a>
+            <a href="wie-wij-zijn" class="link" data-link="wie-wij-zijn">Wie wij zijn</a>
             <a href="wachtwoord-wijzigen" class="link" data-link="wachtwoord-wijzigen">Wachtwoord wijzigen</a>
         </div>
         <div class="desktopOnly">
@@ -23,6 +24,7 @@
             <div class="hiddenMenu">
                 <div class="navbarLinks">
                     <a href="/admin/" class="link" data-link="blog">Blog</a>
+                    <a href="wie-wij-zijn" class="link" data-link="wie-wij-zijn">Wie wij zijn</a>
                     <a href="wachtwoord-wijzigen" class="link" data-link="wachtwoord-wijzigen">Wachtwoord wijzigen</a>
                     <div class="userInfo"></div>
                 </div>

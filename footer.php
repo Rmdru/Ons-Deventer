@@ -25,4 +25,5 @@
 <script src="js/comment.js"></script>
 <script src="js/contact.js"></script>
 <script src="js/user.js"></script>
+<script src="js/whoWeAre.js"></script>
 <script src="js/404.js"></script>
