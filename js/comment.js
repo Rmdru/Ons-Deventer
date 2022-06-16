@@ -5,7 +5,7 @@ function disableNameField() {
 }
 
 function viewComments(blog, response = "") {
-    $.getJSON("models/comment?action=read&blog=" + blog, function(data) {
+    $.getJSON("../models/comment?action=read&blog=" + blog, function(data) {
         var output = "";
         if (data == "failed" || data == "noCommentsFound") {
             var amount = 0;
