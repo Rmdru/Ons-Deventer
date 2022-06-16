@@ -1,2 +1,5 @@
 /config/*
 /img/*
+.htaccess
+robots.txt
+localhost.sql
