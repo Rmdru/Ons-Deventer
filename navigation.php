@@ -3,7 +3,7 @@
     <div class="wrapper">
         <div>
             <a href="/">
-                <img src="img/logoWhiteTransparent.svg" alt="Ons Deventer logo" width='100' height='100' />
+                <img src="img/logoWhiteTransparent.svg" alt="Ons Deventer logo" width='100' height='100' class="relativeUrl" />
             </a>
         </div>
         <div class="navbarLinks desktopOnly">

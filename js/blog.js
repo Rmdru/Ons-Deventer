@@ -1,3 +1,5 @@
+
+
 //view blog overview small
 if ($(".viewBlogOverviewSm").length > 0) {
     var output = "";
@@ -30,7 +32,7 @@ if ($(".viewBlogOverviewSm").length > 0) {
                         output += "<h3 class='title'>" + title + "</h3>";
                         output += "<p class='primaryTxt'>" + bodyTxt + "</p>";
                         output += "<p class='secondaryTxt'>" + dateTime + " - Leestijd: " + readTime + "</p>";
-                        output += "<a href='blog-detail?blog=" + url + "' class='primaryBtn'>Lees meer</a>";
+                        output += "<a href='blog/" + url + "' class='primaryBtn'>Lees meer</a>";
                     output += "</div>";
                     j++;
                 }
@@ -81,12 +83,12 @@ function viewBlogOverview(sortBy) {
                 }
                 var imgFileType = data[i].imgFileType;
         
-                output += "<div class='flexItem displayNone' data-url='blog-detail?blog=" + url + "'>";
+                output += "<div class='flexItem displayNone' data-url='blog/" + url + "'>";
                     output += "<img src='img/blog/" + uuid + "." + imgFileType + "' class='gridImg' width='100' height='100' />";
                     output += "<h3 class='title'>" + title + "</h3>";
                     output += "<p class='primaryTxt'>" + bodyTxt + "</p>";
                     output += "<p class='secondaryTxt'>" + dateTime + " - Leestijd: " + readTime + "</p>";
-                    output += "<a href='blog-detail?blog=" + url + "' class='primaryBtn'>Lees meer</a>";
+                    output += "<a href='blog/" + url + "' class='primaryBtn'>Lees meer</a>";
                 output += "</div>";
             }
 
@@ -129,8 +131,8 @@ function viewBlogOverview(sortBy) {
 
 //view blog detail
 if ($(".viewBlogDetail").length > 0) {
-    var blog = getUrlParameter("blog");
-    $.getJSON("models/blog?action=readSingle&blog=" + blog, function(data) {
+    var blog = /[^/]*$/.exec(window.location.href)[0];
+    $.getJSON("../models/blog?action=readSingle&blog=" + blog, function(data) {
         var output = "";
         if (data == "failed") {
             output += "<p class='txt'>Er is iets fout gegaan.</p>";
@@ -155,7 +157,7 @@ if ($(".viewBlogDetail").length > 0) {
                 
                 $(".blogTitle").html(title + " - Ons Deventer");
                 output += "<header class='header'>";
-                    output += "<img src='img/blog/" + uuid + "." + imgFileType + "' class='headerImg' width='100' height='100' />";
+                    output += "<img src='../img/blog/" + uuid + "." + imgFileType + "' class='headerImg' width='100' height='100' />";
                     output += "<div class='headerBar'>";
                         output += "<div class='wrapper'>";
                             output += "<h1 class='title'>" + title + "</h1>";
@@ -218,7 +220,7 @@ if ($(".viewBlogDetail").length > 0) {
     })
 
     function viewRecentBlogs(url) {
-        $.getJSON("models/blog?action=readRecent&sortBy=dateTimeDesc&url=" + url, function(data) {
+        $.getJSON("../models/blog?action=readRecent&sortBy=dateTimeDesc&url=" + url, function(data) {
             var output = "";
             if (data == "failed") {
                 output += "<p class='txt'>Er is iets fout gegaan.</p>";
@@ -236,7 +238,7 @@ if ($(".viewBlogDetail").length > 0) {
                         var imgFileType = data[i].imgFileType;
     
                         output += "<a href='blog-detail.php?blog=" + url + "' class='recentBlog'>";
-                            output += "<img class='img' src='img/blog/" + uuid + "." + imgFileType + "' width='100' height='100'>";
+                            output += "<img class='img' src='../img/blog/" + uuid + "." + imgFileType + "' width='100' height='100'>";
                             output += "<p class='txt'>" + title + "</p>";
                         output += "</a>";
         
