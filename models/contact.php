@@ -21,7 +21,7 @@ if ($action == "send") {
     $hiddenField = $_POST["hiddenField"];
     $captchaInput = $_POST['captcha'];
     $captchaSession = $_SESSION['captcha'];
-    $mailTo = "onsdeventer@rubenderuijter.nl";
+    $mailTo = "onsdeventer0570@gmail.com";
     $headers = "From: {$name} <{$emailFrom}>\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=utf-8\r\n";
