@@ -237,7 +237,7 @@ if ($(".viewBlogDetail").length > 0) {
                         var title = data[i].title;
                         var imgFileType = data[i].imgFileType;
     
-                        output += "<a href='blog-detail.php?blog=" + url + "' class='recentBlog'>";
+                        output += "<a href='" + url + "' class='recentBlog'>";
                             output += "<img class='img' src='../img/blog/" + uuid + "." + imgFileType + "' width='100' height='100'>";
                             output += "<p class='txt'>" + title + "</p>";
                         output += "</a>";
